@@ -2,7 +2,7 @@
 
 Smartphone app and server backend that extracts information from event posters
 
-<img src="./images/logo.png" alt="Logo" style="max-width: 100px;"/>
+![Logo](./images/logo.png =100x)
 
 Poster Safari was developed as part of a case study at the University of Lübeck.
 
