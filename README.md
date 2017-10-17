@@ -2,7 +2,7 @@
 
 Smartphone app and server backend that extracts information from event posters
 
-![Logo](./images/logo.png)
+<img src="./images/logo.png" alt="Logo" style="max-width: 100px;"/>
 
 Poster Safari was developed as part of a case study at the University of Lübeck.
 
@@ -11,9 +11,9 @@ However, whoever finds the app useful (and we are sure, somewhone does!) may ask
 
 ## App
 
-![Logo](./images/app_screen_welcome.png)
-![Logo](./images/app_screen_home.png)
-![Logo](./images/app_screen_details.png)
+![App Welcome](./images/app_screen_welcome.png)
+![App Home](./images/app_screen_home.png)
+![App Details](./images/app_screen_details.png)
 
 ## System overview 
 
