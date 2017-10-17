@@ -2,7 +2,7 @@
 <widget id="info.postersafari.app" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Poster Safari</name>
     <description>Never forget your event</description>
-    <author email="app@postersafari.info" href="https://github.com/progwolff/postr-app">Postr-Team</author>
+    <author email="app@postersafari.info" href="https://github.com/progwolff/poster-safari">Postr-Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
