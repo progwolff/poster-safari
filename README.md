@@ -1,6 +1,6 @@
 # Poster Safari
 
-Smartphone App and Server backend that extracts information from event posters
+Smartphone app and server backend that extracts information from event posters
 
 Poster Safari was developed as part of a case study at the University of Lübeck.
 
