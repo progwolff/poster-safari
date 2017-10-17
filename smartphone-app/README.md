@@ -1,6 +1,8 @@
-# Build
+# Poster Safari -- Android App
 
-## Requirenments
+## Build
+
+### Requirenments
 
 Software:
 * nodejs
@@ -8,36 +10,24 @@ Software:
 * Optional:
   * android-sdk / android-studio
 
-## Install
+### Install
 
 1. Install Ionic: `npm install -g cordova ionic`
 1. `npm update`
 
-## Icon and Splash
+### Icon and Splash
 
 To generate a new icon or spash image, create files `resources/icon.png` or `resources/splash.png` and generate artifacts: `ionic cordova resources`
 
 An ionic account is neccessary.
 
-## Documentation
+### Documentation
 
 To create code documentation from source files, run `ǹpm run doc`. The docs will be created in `docs/index.html`.
 
-# Run
+## Run
 
-## Debug app in web browser
-
-Doesn't work because of network-plugin...
-
-However, would be done as follows:
-
-Start server:  `ionic serve `
-
-Visit: `http://localhost:8100/ionic-lab`
-
-## Android emulator
-
-### Install
+### Install dependencies
 
 #### Aur-Packages
 
@@ -47,6 +37,16 @@ Visit: `http://localhost:8100/ionic-lab`
 * android-sdk-platform-tools
 
 Add android platform to project: `ionic platform add android`
+
+### Debug app in web browser
+
+Doesn't work because of network-plugin...
+
+However, would be done as follows:
+
+Start server:  `ionic serve `
+
+Visit: `http://localhost:8100/ionic-lab`
 
 ### Start app in emulator
 
