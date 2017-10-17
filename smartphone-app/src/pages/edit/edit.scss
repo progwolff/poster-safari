@@ -1,0 +1,29 @@
+.page-edit {
+	$image-height: 150px;
+	#poster {
+		width: 100%;
+		height: $image-height;
+		position: relative;
+	}
+
+	#poster .card-image {
+		width: 100%;
+		height: $image-height;
+		object-fit: cover;
+	}
+
+	//disable green lines
+	.item-md.item-input .item-inner {
+		border-bottom-color: transparent !important;
+		box-shadow: none !important;
+	}
+	.item-md.item-input {
+		border-bottom-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	//Black icon on divider
+	ion-item-divider > ion-icon{
+		color: #000;
+	}
+}

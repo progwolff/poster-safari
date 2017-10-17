@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=postersafari-editor
+Icon=postersafari
+Type=Application
+Categories=Qt;Database;Utility
+Comment=Document editor for Poster Safari
+Name=Poster Safari
+MimeType=application/x-postersafari-editor-setlist;
+
+Comment[de]=Dokumentbetrachter und -editor für Poster Safari

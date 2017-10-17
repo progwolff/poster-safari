@@ -1,0 +1,1 @@
+WordMergeWorker bearbeitet die Strings, entfernt die Leerzeichen und merged auf diese Weise die einzelnen Worte, damit die Spelling Correction sie weiterbearbeiten kann.

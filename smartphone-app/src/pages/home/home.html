@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-title>Poster Safari</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="presentPopover($event)">
+				<ion-icon name="more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div emptystate *ngIf="loaded[0] && posters.length == 0">
+		<img src="assets/img/emptystate/home.png">
+		<div emptyBackground></div>
+		<div emptyDescription>
+			<div emptyText>
+				{{'intro_5_BTN' | translate}}
+			</div>
+			<ion-icon name="arrow-forward"></ion-icon>
+		</div>
+	</div>
+
+	<ion-backdrop (click)="bdClick()" *ngIf="fabButton"></ion-backdrop>
+	<ion-fab right bottom #fab>
+		<button ion-fab color="primary" (click)="registerFab(fab)"><ion-icon name="add"></ion-icon></button>
+		<ion-fab-list side="top">
+			<button ion-fab color="primary" (click)="getPicture(false)"><ion-icon name="camera"></ion-icon></button>
+			<button ion-fab color="primary" (click)="getPicture(true)"><ion-icon name="images"></ion-icon></button>
+		</ion-fab-list>
+	</ion-fab>
+
+	<ion-card (click)="showDetails(poster)" (press)="contextMenu(poster)" *ngFor="let poster of posters">
+		<div>
+			<img class="card-image" *ngIf="(poster.hasImageThumb && poster.hasImageThumb()) || (poster.hasImage && poster.hasImage())" src="{{poster.getPicture()}}">
+			<ion-spinner class="card-image" *ngIf="(poster.hasImage && !poster.hasImage() && !poster.hasImageThumb()) || !poster.hasImage" style="margin:auto;"></ion-spinner>
+			<div class="cover"></div>
+			<div class="card-title">
+				{{poster.getEventVar("title") || ('home_NOTPROCESSED'| translate)}}
+				<div class="card-subtitle" *ngIf="poster !== undefined">
+					{{'home_CREATED' | translate }} {{poster.created | date:"dd.MM.yyyy, HH:mm"}} {{'home_OCLOCK' | translate}}
+				</div>
+			</div>
+		</div>
+	</ion-card>
+</ion-content>

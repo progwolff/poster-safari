@@ -1,0 +1,29 @@
+
+imageview {
+	.scroll-content {
+		background: #1e1e1e;
+	}
+
+	ion-navbar .toolbar-background {
+		background: rgba(0,0,0,0.3);
+	}
+
+	ion-content .scroll-content {
+		margin-top:0px !important;
+	}
+
+	.pinch-zoom-container {
+		position:relative;
+		overflow: hidden;
+		height: 100%;
+		width:100%;
+	}
+
+	.pinch-zoom-image {
+		position: absolute;
+		top: 50%;  /* position the top  edge of the element at the middle of the parent */
+		left: 50%; /* position the left edge of the element at the middle of the parent */
+		transform: translate(-50%, -50%); /* This is a shorthand of translateX(-50%) and translateY(-50%) */
+		width: 100%;
+	}
+}

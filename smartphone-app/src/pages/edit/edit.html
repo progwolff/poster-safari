@@ -1,0 +1,135 @@
+<ion-header>
+	<ion-navbar overlay>
+		<ion-buttons>
+			<button ion-button icon-only (click)="dismiss(false)">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons  end>
+			<button ion-button icon-only (click)="processEdits()">
+				{{'action_SAVE' | translate}}
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+	<div id="poster">
+		<img class="card-image" *ngIf="poster && poster.hasImage && (poster.hasImageThumb() || poster.hasImage())" src="{{poster.getPicture()}}" (click)="viewImage();">
+		<ion-spinner class="card-image" *ngIf="!(poster && poster.hasImage && (poster.hasImageThumb() || poster.hasImage()))" style="margin:auto;"></ion-spinner>
+	</div>
+</ion-header>
+
+<ion-content>
+	<div *ngIf="debug">{{poster._id}}</div>
+
+	<ion-list no-lines>
+		<ion-item-divider>
+			<ion-icon name="quote" item-start></ion-icon>
+			{{'field_TITLE'| translate}}
+		</ion-item-divider>
+		<ion-item>
+			<ion-input [(ngModel)]="editEvent.title" name="title" placeholder="{{'field_TITLE'| translate}}" type="text"></ion-input>
+		</ion-item>
+
+		<ion-item-divider>
+			<ion-icon name="person" item-start></ion-icon>
+			{{'field_ARTISTS'| translate}}
+			<button ion-button clear icon-only item-end (click)="addArtist()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-item-divider>
+		<ion-item *ngFor="let art of editEvent.artists; let i=index">
+			<ion-input [(ngModel)]="editEvent.artists[i]" name="artists{{i}}" placeholder="{{'field_ARTIST'| translate}}" type="text"></ion-input>
+			<button ion-button clear icon-only item-end (click)="removeArtist(i)">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-item>
+
+		<ion-item-divider>
+			<ion-icon name="calendar" item-start></ion-icon>
+			{{'field_DATES'| translate}}
+			<button ion-button clear icon-only item-end (click)="addDate()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-item-divider>
+		<ion-row *ngFor="let time of editEvent.times; let i=index">
+			<ion-item ion-col>
+				<ion-datetime [(ngModel)]="time.start" name="startTime{{i}}"  min="2010-01-01" max="2024-12-31" minuteValues="0,15,30,45" displayFormat="{{getTimeFormat(time)}}" pickerFormat="{{getPickerFormat(time)}}" ></ion-datetime>
+			</ion-item>
+			<ion-item nopadding-item ion-col>
+				<ion-datetime [(ngModel)]="time.stop" name="stopTime{{i}}" min="2010-01-01" max="2024-12-31" minuteValues="0,15,30,45" displayFormat="{{getTimeFormat(time)}}" pickerFormat="{{getPickerFormat(time)}}" ></ion-datetime>
+			</ion-item>
+			<ion-toggle ion-col  col-auto [(ngModel)]="time.allDay" name="allday{{i}}" ></ion-toggle>
+			<ion-col col-auto>
+				<button ion-col ion-button clear icon-only icon-left (click)="removeDate(i)">
+					<ion-icon name="close"></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>
+
+		<ion-item-divider>
+			<ion-icon name="pin" item-start></ion-icon>
+			{{'field_ADDRESS'| translate}}
+		</ion-item-divider>
+		<ion-item>
+			<ion-input [(ngModel)]="editEvent.venue_name" name="venue_name" placeholder="{{'field_VENUE' | translate}}" type="text"></ion-input>
+		</ion-item>
+		<ion-item no-lines>
+			<ion-input [(ngModel)]="editEvent.address" name="address" placeholder="{{'field_STREET' | translate}}" type="text"></ion-input>
+		</ion-item>
+		<ion-row>
+			<ion-item ion-col col-4>
+				<ion-input [(ngModel)]="editEvent.postal_code" name="postal_code" placeholder="{{'field_POSTCODE' | translate}}"  type="number"></ion-input>
+			</ion-item>
+			<ion-item ion-col nopadding-item>
+				<ion-input [(ngModel)]="editEvent.city" name="city" placeholder="{{'field_CITY' | translate}}" type="text"></ion-input>
+			</ion-item>
+		</ion-row>
+
+		<ion-item-divider>
+			<ion-icon name="pricetags" item-start></ion-icon>
+			{{'field_PRICES'| translate}}
+			<button ion-button clear icon-only item-end (click)="addTicket()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-item-divider>
+		<ion-grid>
+			<ion-row align-items-center *ngFor="let ticket of editEvent.tickets; let i=index">
+				<ion-item ion-col>
+					<ion-input [(ngModel)]="ticket.price" name="price{{i}}" ngDefaultControl  type="number" ></ion-input>
+				</ion-item>
+				<ion-item nopadding-item ion-col justify-content-start>
+					<ion-input [(ngModel)]="ticket.currency" name="curr{{i}}" ngDefaultControl placeholder="€" type="text"></ion-input>
+				</ion-item>
+				<ion-item ion-col col-7>
+					<ion-input [(ngModel)]="ticket.description" name="description{{i}}" ngDefaultControl  placeholder="Adults" type="text" ></ion-input>
+				</ion-item>
+				<ion-col col-auto>
+					<button ion-button clear icon-only icon-left (click)="removeTicket(i)">
+						<ion-icon name="close"></ion-icon>
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+		<ion-item-divider>
+			<ion-icon name="analytics" item-start></ion-icon>
+			{{'field_ORGANIZERS'| translate}}
+			<button ion-button clear icon-only item-end (click)="addOrganizer()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+		</ion-item-divider>
+		<ion-item *ngFor="let org of editEvent.organizers; let i=index">
+			<ion-input [(ngModel)]="editEvent.organizers[i]" name="organizers{{i}}"  type="text"></ion-input>
+			<button ion-button clear icon-only item-end (click)="removeOrganizer(i)">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-item>
+
+		<ion-item-divider>
+			<ion-icon name="list" item-start></ion-icon>
+			{{'field_DESCRIPTION'| translate}}
+		</ion-item-divider>
+		<ion-item>
+			<ion-textarea rows="4" [(ngModel)]="editEvent.description" name="description"  type="text"></ion-textarea>
+		</ion-item>
+	</ion-list>
+</ion-content>

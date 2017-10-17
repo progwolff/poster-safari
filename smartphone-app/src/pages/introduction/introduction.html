@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Welcome to Poster Safari</ion-title>
+		<ion-buttons end>
+			<button ion-button (click)="skip()" color="primary">Skip</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-slides pager>
+		<ion-slide>
+			<img src="assets/img/intro/welcome.png" class="slide-image">
+			<h2 class="slide-title">{{'intro_1_TITLE' | translate}}</h2>
+			<p>{{'intro_1_DESC' | translate}}</p>
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/img/intro/take.png" class="slide-image">
+			<h2 class="slide-title">{{'intro_2_TITLE' | translate}}</h2>
+			<p>{{'intro_2_DESC' | translate}}</p>
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/img/intro/cal.png" class="slide-image">
+			<h2 class="slide-title">{{'intro_3_TITLE' | translate}}</h2>
+			<p>{{'intro_3_DESC' | translate}}</p>
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/img/intro/find.png" class="slide-image">
+			<h2 class="slide-title">{{'intro_4_TITLE' | translate}}</h2>
+			<p>{{'intro_4_DESC' | translate}}</p>
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/img/intro/safariPoster.png" class="slide-image"/>
+			<h2 class="slide-title">{{'intro_5_TITLE' | translate}}</h2>
+			<button ion-button large clear icon-right (click)="end()" color="primary">
+				{{'intro_5_BTN' | translate}}
+				<ion-icon name="arrow-forward"></ion-icon>
+			</button>
+		</ion-slide>
+	</ion-slides>
+</ion-content>

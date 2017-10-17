@@ -1,0 +1,126 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+////////////////////////////////////////////////////////////////////////////////
+//Mixins
+////////////////////////////////////////////////////////////////////////////////
+@mixin keyframes($animationName) {
+	@-webkit-keyframes #{$animationName} {
+		@content;
+	}
+	@-moz-keyframes #{$animationName} {
+		@content;
+	}
+	@-o-keyframes #{$animationName} {
+		@content;
+	}
+	@keyframes #{$animationName} {
+		@content;
+	}
+}
+
+@mixin animation($animation) {
+	-webkit-animation: $animation;
+	-moz-animation:    $animation;
+	-o-animation:      $animation;
+	animation:         $animation;
+}
+////////////////////////////////////////////////////////////////////////////////
+//Fixes
+////////////////////////////////////////////////////////////////////////////////
+
+.datetime{
+	padding-left: 8px; //was 16px --> does not allign in list
+}
+
+.fab-close-active .fab-close-icon{
+	padding:4px !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//Additional tags
+////////////////////////////////////////////////////////////////////////////////
+
+.segment-button[noborder]{
+	border: none;
+}
+
+ion-item[multiline] ion-label{
+	white-space: normal;
+}
+
+ion-item-divider[empty]{
+	min-height: 0;
+	z-index: 0;
+	.item-inner{
+		display: none;
+	}
+}
+
+//nopadding item
+ion-item[nopadding-item]{
+	padding-left: 0;
+	.item-inner{
+		padding-right: 0;
+	}
+	.datetime{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+//overlay navbar
+ion-navbar[overlay] {
+	position: absolute;
+	z-index: 11;
+	text-shadow: black 0 0 3px;
+
+	.toolbar-background {
+		background: rgba(0,0,0,0.5)//linear-gradient(to bottom,rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0))
+	}
+
+	.toolbar-title {
+		color: white !important;
+	}
+
+	button{
+		color: white !important;
+		text-shadow: black 0 0 3px;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//Customizations
+////////////////////////////////////////////////////////////////////////////////
+
+//less devider
+ion-item-divider{
+	border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//Animations
+////////////////////////////////////////////////////////////////////////////////
+@include keyframes(fadein) {
+	from {opacity:0;}
+	to {opacity:1;}
+}
+
+@include keyframes(fadeout) {
+	from {opacity:1;}
+	to {opacity:0;}
+}

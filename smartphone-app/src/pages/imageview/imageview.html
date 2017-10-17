@@ -1,0 +1,18 @@
+<ion-header no-shadow>
+	<ion-navbar overlay no-border-bottom>
+		<ion-buttons>
+			<button ion-button icon-only (click)="closeModal()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<ion-spinner *ngIf="!mediaLoaded" color="light"></ion-spinner>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div #imageParent class="pinch-zoom-container">
+		<img #image dimg="medium" class="pinch-zoom-image" [src]="src" alt="loading.." (load)="setMediaLoaded()">
+	</div>
+</ion-content>

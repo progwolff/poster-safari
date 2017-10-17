@@ -1,0 +1,5 @@
+page-details {
+	.swiper-pagination-bullet-active {
+		background: map-get($colors,danger);
+	}
+}

@@ -1,0 +1,36 @@
+page-details {
+
+	div[emptystate]{
+		button{
+			width:100%;
+			text-align:center;
+		}
+		img{
+			@include animation(1s fadein);
+			width:100%;
+			position:absolute;
+			bottom:0px;
+			margin:auto;
+		}
+	}
+
+	#poster {
+		width: 100%;
+		height: $image-height;
+		position: relative;
+	}
+
+	#poster .card-image {
+		width: 100%;
+		height: $image-height;
+		object-fit: cover;
+	}
+
+	span:before {
+		white-space: pre;
+	}
+
+	ion-footer{
+		position: fixed !important;
+	}
+}

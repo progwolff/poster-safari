@@ -1,0 +1,91 @@
+<ion-header>
+	<ion-navbar overlay>
+		<ion-title>{{editEvent.title || "Details"}}</ion-title>
+		<ion-buttons  end>
+			<button ion-button icon-only (click)="edit()">
+				<ion-icon name="create"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+	<div id="poster">
+		<img class="card-image" *ngIf="poster && poster.hasImage && (poster.hasImageThumb() || poster.hasImage())" src="{{poster.getPicture()}}" (click)="viewImage();">
+		<ion-spinner class="card-image" *ngIf="!(poster && poster.hasImage && (poster.hasImageThumb() || poster.hasImage()))" style="margin:auto;"></ion-spinner>
+	</div>
+</ion-header>
+
+<ion-content>
+	<div emptystate>
+		<button ion-button large icon-right center top clear color="dark" *ngIf="(editEvent.title == null)">
+			{{'home_NOTPROCESSED' | translate}}
+		</button>
+		<img src="assets/img/emptystate/details.png" *ngIf="(editEvent.title == null)" style="z-index:3;">
+	</div>
+	<ion-list no-lines>
+		<ion-item *ngFor="let art of editEvent.artists; let i=index">
+			<ion-icon *ngIf="i==0" name="person" item-start></ion-icon>
+			<ion-icon *ngIf="i>0" item-start></ion-icon>
+			{{editEvent.artists[i]}}
+		</ion-item>
+		<ion-item-divider empty *ngIf="editEvent.times && editEvent.times.length>0"></ion-item-divider>
+		<ion-item text-wrap *ngFor="let time of editEvent.times; let i=index;">
+			<ion-icon *ngIf="i==0" name="calendar" item-start></ion-icon>
+			<ion-icon *ngIf="i>0" item-start></ion-icon>
+			{{editEvent.getDate(time)}}
+			<span *ngIf="time.stop">-&nbsp;&nbsp;{{editEvent.getDate(time,false)}}</span>
+		</ion-item>
+		<ion-item-divider empty *ngIf="editEvent.city"></ion-item-divider>
+		<ion-item *ngIf="editEvent.city">
+			<ion-icon name="pin" item-start></ion-icon>
+			<span *ngIf="editEvent.venue_name">
+				{{editEvent.venue_name}} <br>
+			</span>
+			<span *ngIf="editEvent.address">
+				{{editEvent.address}} <br>
+			</span>
+			<span  *ngIf="editEvent.city">
+				{{editEvent.postal_code}} {{editEvent.city}}
+			</span>
+		</ion-item>
+		<ion-item-divider empty *ngIf="editEvent.tickets && editEvent.tickets.length>0"></ion-item-divider>
+		<ion-item *ngFor="let ticket of editEvent.tickets; let i=index">
+			<ion-icon *ngIf="i==0" name="pricetags" item-start></ion-icon>
+			<ion-icon *ngIf="i>0" item-start></ion-icon>
+			{{ticket.price}}{{ticket.currency || "€"}}
+			<span *ngIf="ticket.description">
+				{{ticket.description}}
+			</span>
+		</ion-item>
+		<ion-item-divider empty *ngIf="editEvent.organizers && editEvent.organizers.length>0"></ion-item-divider>
+		<ion-item *ngFor="let org of editEvent.organizers; let i=index">
+			<ion-icon *ngIf="i==0" name="analytics" item-start></ion-icon>
+			<ion-icon *ngIf="i>0" item-start></ion-icon>
+			{{editEvent.organizers[i]}}
+		</ion-item>
+		<ion-item-divider empty *ngIf="editEvent.description"></ion-item-divider>
+		<ion-item multiline *ngIf="editEvent.description">
+			<ion-icon name="list" item-start></ion-icon>
+			{{editEvent.description}}
+		</ion-item>
+		<div><span *ngIf="debug">{{poster._id}}</span></div>
+		<!--Some items vor padding.. damn footer-->
+		<ion-item></ion-item>
+		<ion-item></ion-item>
+
+	</ion-list>
+	<ion-footer *ngIf="editEvent.latitude || editEvent.title || editEvent.times">
+		<ion-toolbar color="primary">
+			<ion-segment color="dark">
+				<ion-segment-button noborder value="calendar" (click)='exportCalendar();' *ngIf="editEvent.times">
+					<ion-icon name="calendar"></ion-icon>
+				</ion-segment-button>
+				<ion-segment-button noborder value="share" (click)='share();' *ngIf="editEvent.title">
+					<ion-icon name="share"></ion-icon>
+				</ion-segment-button>
+				<ion-segment-button noborder value="navigate" (click)='navigate();' *ngIf="editEvent.latitude">
+					<ion-icon name="navigate"></ion-icon>
+				</ion-segment-button>
+			</ion-segment>
+		</ion-toolbar>
+	</ion-footer>
+
+</ion-content>
