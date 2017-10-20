@@ -1,0 +1,201 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+<<<<<<< HEAD
+	Fractal by HTML5 UP
+=======
+	Spectral by HTML5 UP
+>>>>>>> beta
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+<<<<<<< HEAD
+=======
+/* Icon */
+
+	.icon {
+		&.major {
+			border: none;
+
+			&:before {
+				font-size: 3em;
+			}
+		}
+	}
+
+/* Form */
+
+	label {
+		color: _palette(accent7, fg-bold);
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	textarea {
+		border: solid 1px _palette(accent7, border);
+	}
+
+>>>>>>> beta
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+<<<<<<< HEAD
+		position: relative;
+		-ms-behavior: url('assets/js/ie/PIE.htc');
+		border: solid (_size(border-width) * 2) _palette(border) !important;
+
+		&:hover {
+			border: solid (_size(border-width) * 2) _palette(border) !important;
+		}
+
+		&.special {
+			border: none !important;
+
+			&:hover {
+				border: none !important;
+			}
+		}
+	}
+
+/* Image */
+
+	.image {
+		-ms-behavior: url('assets/js/ie/PIE.htc');
+
+		img {
+			position: relative;
+			-ms-behavior: url('assets/js/ie/PIE.htc');
+		}
+
+		&.phone {
+			&:before, &:after {
+				display: none;
+			}
+
+			.inner {
+				&:before, &:after {
+					display: none;
+=======
+		border: solid 2px _palette(accent7, border);
+
+		&.special {
+			border: 0 !important;
+		}
+	}
+
+/* Page Wrapper + Menu */
+
+	#menu {
+		display: none;
+	}
+
+	body.is-menu-visible {
+		#menu {
+			display: block;
+		}
+	}
+
+/* Header */
+
+	#header {
+		nav {
+			> ul {
+				> li {
+					> a {
+						&.menuToggle {
+							&:after {
+								display: none;
+							}
+						}
+					}
+>>>>>>> beta
+				}
+			}
+		}
+	}
+
+<<<<<<< HEAD
+/* List */
+
+	ul {
+		&.icons {
+			li {
+				padding: 0 0 0 1.5em;
+
+				&:first-child {
+					padding-left: 0 !important;
+				}
+
+				.icon {
+					&:before {
+						font-size: 24px;
+					}
+				}
+			}
+
+			&.major {
+				li {
+					padding: 0 0 0 2.5em;
+
+					.icon {
+						&:before {
+							font-size: 48px;
+						}
+					}
+				}
+=======
+/* Banner + Wrapper (style4) */
+
+	#banner,
+	.wrapper.style4 {
+		-ms-behavior: url('assets/js/ie/backgroundsize.min.htc');
+
+		&:before {
+			display: none;
+		}
+	}
+
+/* Banner */
+
+	#banner {
+		.more {
+			height: 4em;
+
+			&:after {
+				display: none;
+>>>>>>> beta
+			}
+		}
+	}
+
+<<<<<<< HEAD
+/* Header */
+
+	#header {
+		min-height: 0;
+
+		.image {
+			margin: 0 0 (_size(element-margin)) 0;
+=======
+/* Main */
+
+	#main {
+		> header {
+			-ms-behavior: url('assets/js/ie/backgroundsize.min.htc');
+
+			&:before {
+				display: none;
+			}
+>>>>>>> beta
+		}
+	}
