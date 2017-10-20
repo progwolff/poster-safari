@@ -2,7 +2,9 @@
 
 Smartphone app and server backend that extracts information from event posters
 
-![Logo](./images/logo_small.png)
+[![Logo](./images/logo_small.png)](https://progwolff.github.io/poster-safari/)
+
+[https://progwolff.github.io/poster-safari](https://progwolff.github.io/poster-safari/)
 
 Poster Safari was developed as part of a case study at the University of Lübeck.
 
